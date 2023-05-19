@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const api = axios.create({
-    baseURL : ' http://localhost:4000'
+    baseURL : 'https://fitness-kingdom-gym-data.onrender.com/'
 })
 
 export const getClients = async ()=> await api.get('clients')
