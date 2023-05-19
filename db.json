@@ -1,0 +1,92 @@
+{
+  "clients": [
+    {
+      "clientId": "c2",
+      "full_name": "Amged Youssef",
+      "mobile_number": "(321) 234-3465",
+      "address": "address 110",
+      "subscription_plan": "subscription_plan 110",
+      "id": "c2"
+    },
+    {
+      "full_name": "Mohammed Ahmed",
+      "mobile_number": "(235) 234-3465",
+      "address": "address 111",
+      "subscription_plan": "subscription_plan 111",
+      "avatar": "/public/images/uniform-avatar.jpg",
+      "id": "c3"
+    },
+    {
+      "full_name": "Ali Mohammed",
+      "mobile_number": "(953) 234-3465",
+      "address": "address 112",
+      "subscription_plan": "subscription_plan 112",
+      "avatar": "/public/images/uniform-avatar.jpg",
+      "id": "c4"
+    },
+    {
+      "full_name": "Saeed Mohammed",
+      "address": "address 113",
+      "subscription_plan": "subscription_plan 113",
+      "mobile_number": "(258) 234-3465",
+      "avatar": "/public/images/uniform-avatar.jpg",
+      "id": "c5"
+    }
+  ],
+  "classes": [
+    {
+      "title": "bleach",
+      "image": "/images/classes/class-1.jpg",
+      "coach_name": "Saad",
+      "timing": "Fri,20:00:00 GMT",
+      "price": "210",
+      "description": "description 42",
+      "coach_brief": "coach_brief 42",
+      "id": "s1"
+    },
+    {
+      "createdAt": "createdAt 43",
+      "title": "title 2",
+      "image": "/images/classes/class-3.jpg",
+      "coach_name": "Saeed",
+      "timing": "Sun,20:00:00 GMT",
+      "price": "300",
+      "description": "description-43",
+      "coach_brief": "coach_brief 43",
+      "id": "s2"
+    },
+    {
+      "createdAt": "createdAt 44",
+      "title": "title 3",
+      "image": "/images/classes/class-4.jpg",
+      "coach_name": "Ahmed",
+      "timing": "Tu,20:00:00 GMT",
+      "price": "150",
+      "description": "description-44",
+      "coach_brief": "coach_brief 44",
+      "id": "s3"
+    },
+    {
+      "createdAt": "createdAt 45",
+      "title": "title 4",
+      "image": "/images/classes/class-3.jpg",
+      "coach_name": "Ahmed",
+      "timing": "Tu,20:00:00 GMT",
+      "price": "200",
+      "description": "description-44",
+      "coach_brief": "coach_brief 44",
+      "id": "s4"
+    },
+    {
+      "createdAt": "createdAt 25",
+      "title": "title 5",
+      "image": "/images/classes/class-3.jpg",
+      "coach_name": "Kareem",
+      "timing": "Tu,20:00:00 GMT",
+      "price": "250",
+      "description": "description-45",
+      "coach_brief": "coach_brief 45",
+      "id": "s5"
+    }
+  ]
+}

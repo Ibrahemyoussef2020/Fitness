@@ -1,0 +1,179 @@
+*{
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family:Poppins, sans-serif ;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x:hidden;
+}
+:root{
+  /*font-size*/
+  --main-title-font : 2.5rem;
+  --another-title-font : 1.5rem;
+  --small-font : 13px;
+  /*font weight*/
+  --bold : 700;
+  /*font family*/
+  --font-family-logo :"cursive" , "Yeseva One";
+}
+
+.full-size{
+  width: 100%;
+  height: 100%;
+}
+
+.line-ness{
+  border:none;
+  outline: none;
+}
+a{
+  text-decoration: none;
+}
+
+/*********************************************/
+/*              media query                  */ 
+/*********************************************/
+@media (max-width: 992px) { 
+  :root{
+      --main-title-font : 2rem;
+      --another-title-font : 1.2rem;
+  }
+}
+
+@media (max-width: 601px) { 
+    :root{
+        --main-title-font : 1.5rem;
+        --another-title-font : 1rem;
+    }
+}
+
+/********************************************/
+/*                tables pages            */
+/*****************************************/
+
+input{
+    width: 100%;
+    min-width:150px;
+    height:50px;
+    padding: 5px;
+    border:2px solid salmon;
+    border-radius:5px;
+    outline: none;
+    font-weight: 700;
+    text-align: center;
+    margin: 5px 0;
+    color: #111;
+    background:#fff;
+}
+
+input::placeholder{
+    color:#777;
+}
+
+button{
+    cursor: pointer;
+}
+
+.remove , .list-button.details{
+    background: #000;
+    border: 1.5px solid salmon;
+    color: #fff;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.update{
+    background: salmon;
+    border:2px solid #fff;
+    color:#000;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+/*********************** table ********************/
+table{
+    width: 100%;
+    margin-top:3rem;
+    text-align: center;
+    border: 1px solid orangered;
+    background: #333;
+    color: #fff;
+    overflow-x: auto;
+}
+
+th,td{
+    padding:10px 5px;
+    text-align: center;
+    white-space: nowrap; 
+    color:#fefefec9;
+}
+th{
+    font-weight: 900;
+    font-size: 18px;
+    color: #fff;
+}
+
+table.table-details tr{
+    margin-top: 20px;
+}
+
+.general-body-btn{
+    padding: .5rem 1.5rem;
+    border:1px solid #fff;
+    border-radius: 5px;
+    outline: none;
+    background:salmon;
+    color:#fff;
+    cursor: pointer;
+    min-width: 150px;
+}
+
+.list-button{
+    padding:3px;
+    border-radius: 5px;
+}
+
+
+.client-cover{
+    max-width: 100%;
+    height:70vh;
+}
+.client-avatar{
+    position: absolute;
+    bottom:188px;
+    left: 50px;
+    max-width:100px;
+    max-height:130px;
+    border: 5px solid #eee;
+    padding: 5px;
+    background: #fff;
+    z-index: 10;
+}
+table.table-details{
+margin-top:0;
+}
+.link-home{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    position: fixed;
+    top:20px;
+    right:50px;
+    background: transparent;
+    font-weight:900;
+}
+.link-home a{
+    color: rgb(89, 0, 255);
+    font-size: 17px;
+    border: .5px solid solid;
+    letter-spacing:2.2px;
+}
