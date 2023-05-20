@@ -35,24 +35,11 @@
   ],
   "classes": [
     {
-      "title": "bleach",
-      "image": "/images/classes/class-1.jpg",
-      "coach_name": "Saad",
-      "timing": "Fri,20:00:00 GMT",
-      "price": "210",
-      "description": "description 42",
-      "coach_brief": "coach_brief 42",
-      "id": "s1"
-    },
-    {
-      "createdAt": "createdAt 43",
+      "classId": "s2",
       "title": "title 2",
-      "image": "/images/classes/class-3.jpg",
       "coach_name": "Saeed",
       "timing": "Sun,20:00:00 GMT",
       "price": "300",
-      "description": "description-43",
-      "coach_brief": "coach_brief 43",
       "id": "s2"
     },
     {
@@ -76,17 +63,6 @@
       "description": "description-44",
       "coach_brief": "coach_brief 44",
       "id": "s4"
-    },
-    {
-      "createdAt": "createdAt 25",
-      "title": "title 5",
-      "image": "/images/classes/class-3.jpg",
-      "coach_name": "Kareem",
-      "timing": "Tu,20:00:00 GMT",
-      "price": "250",
-      "description": "description-45",
-      "coach_brief": "coach_brief 45",
-      "id": "s5"
     }
   ]
 }

@@ -13,7 +13,7 @@ const Class = ({training,setValues,setIsPostMode}) => {
     const navigate = useNavigate()
 
     // remove 
-    const {mutateAsync:mutateDelete} = useMutation(removeClass)
+    const {mutateAsync:mutateDelete,isLoading,isError} = useMutation(removeClass)
 
     const handleRemove = async (id)=>{
         await mutateDelete(training.id)
@@ -39,6 +39,14 @@ const handleDetails = (id)=>{
     navigate(`/classesDetail/${id}`)
 }
 
+    if (isLoading) {
+        return <h2>Loading...</h2>
+    }
+
+    if (isError) {
+        return <h2>Something Went Wrong!</h2>
+    }
+
     return (
         <>
             <tr>
@@ -46,9 +54,11 @@ const handleDetails = (id)=>{
                 <td>{training.coach_name}</td>
                 <td>{training.timing}</td>
                 <td>{training.price}</td>
-                <td><button onClick={()=>handleDetails(training.id)} className='list-button details'>Details</button></td>
-                <td><button onClick={()=>handleRemove(training.id)} className='list-button remove'>Remove</button></td>
-                <td><button onClick={()=>handleUpdate(training)} className='list-button update'>Update</button></td>
+                <td>
+                    <button onClick={()=>handleDetails(training.id)} className='list-button details'>Details</button>
+                    <button onClick={()=>handleRemove(training.id)} className='list-button remove'>Remove</button>
+                    <button onClick={()=>handleUpdate(training)} className='list-button update'>Update</button>
+                </td>
             </tr>
         </>
         )

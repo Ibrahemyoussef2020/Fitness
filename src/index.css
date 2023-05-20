@@ -89,6 +89,7 @@ button{
     color: #fff;
     font-weight: bold;
     font-size: 15px;
+    margin: 0 2px;
 }
 
 .update{
@@ -97,12 +98,23 @@ button{
     color:#000;
     font-weight: bold;
     font-size: 15px;
+    margin: 0 2px;
 }
 
 /*********************** table ********************/
+
+.tableImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+.tableImg img{
+    width: 50%;
+    min-width: 200px;
+}
 table{
     width: 100%;
-    margin-top:3rem;
     text-align: center;
     border: 1px solid orangered;
     background: #333;

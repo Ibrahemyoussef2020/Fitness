@@ -1,3 +1,4 @@
+// Home page data
 export const sections = [
     {
         id:'sectionOne',

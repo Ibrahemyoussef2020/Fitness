@@ -17,4 +17,4 @@ export const modifyClass = async ({id,...modified})=> await api.put(`classes/${i
 .then(res => res.data)
 
 export const removeClass = async (id)=> await api.delete(`classes/${id}`)
-.then(res => true) 
+.then(res => true)

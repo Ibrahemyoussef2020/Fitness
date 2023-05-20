@@ -10,7 +10,7 @@ const queryClient = useQueryClient()
 const navigate = useNavigate()
 
 // remove 
-const {mutateAsync:mutateDelete} = useMutation(removeClient)
+const {mutateAsync:mutateDelete,isLoading,isError} = useMutation(removeClient)
 const handleRemove = async (id)=>{
     await mutateDelete(client.id)
     queryClient.invalidateQueries('clients')
@@ -34,6 +34,15 @@ const handleUpdate = async (client)=>{
 const handleDetails = (id)=>{
     navigate(`/clientsDetail/${id}`)
 }
+
+if (isLoading) {
+    return <h2>Loading...</h2>
+}
+
+if (isError) {
+    return <h2>Something Went Wrong!</h2>
+}
+
 return (
 <>
     <tr>
@@ -41,9 +50,11 @@ return (
         <td>{client.mobile_number}</td>
         <td>{client.address}</td>
         <td>{client.subscription_plan}</td>
-        <td><button onClick={()=>handleDetails(client.id)} className='list-button details'>Details</button></td>
-        <td><button onClick={()=>handleRemove(client.id)} className='list-button remove'>Remove</button></td>
-        <td><button onClick={()=>handleUpdate(client)} className='list-button update'>Update</button></td>
+        <td>
+            <button onClick={()=>handleDetails(client.id)} className='list-button details'>Details</button>
+            <button onClick={()=>handleRemove(client.id)} className='list-button remove'>Remove</button>
+            <button onClick={()=>handleUpdate(client)} className='list-button update'>Update</button>
+        </td>
     </tr>
 </>
 )

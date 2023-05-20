@@ -1,0 +1,30 @@
+- I tried to use next js routes logic in (components , pages) as it possible
+
+- First page is a Home it contains clients and classes
+
+- Both sections contain a table which include buttons and data
+
+- Focussing on the post button it make two options (Update , create) 
+
+- By clicking on Update button the mood post (post api) state will be set to false , thats mean we now in the update mood
+
+- On the other hand by clicking on add .. the  mood (post api) state will be set to false thats mean we now in the post mood and it will be created
+
+- By clicking details the dynamic page will be visited and the id we passed , so the information depending on the id will be set
+
+- The CheckId function's job is Checking if the id is used in post mood if not return true and the data will be created 
+
+- There are many improvements I left it for abbreviation for example :
+
+    - Loading text 
+    - Error text 
+
+    it must be changed by Skelton 
+
+    404 page 
+
+    it have to have a nice configure not just text
+
+- There are components I used it as reused Component , and other I didn't coz the code figure will be ugly 
+
+- Last I gave the functionality entire time and primacy and designed configure by my head to run the logic 

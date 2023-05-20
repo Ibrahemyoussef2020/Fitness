@@ -17,4 +17,4 @@ export const modifyClient = async ({id,...modified})=> await api.put(`clients/${
 .then(res => res.data)
 
 export const removeClient = async (id)=> await api.delete(`clients/${id}`)
-.then(res => true) 
+.then(res => true)

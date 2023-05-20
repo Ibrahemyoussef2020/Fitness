@@ -3,6 +3,7 @@ import {useQuery,useMutation,useQueryClient} from 'react-query'
 import { getClients,addClient} from '../../apis'
 import { modifyClient } from '../../apis'
 import Client from './Client'
+import TablesImg from '../../components/tablesImg';
 import isIdUnique from '../../utilities/CheckId'
 import { json } from 'react-router'
 
@@ -86,16 +87,18 @@ const Clients = () => {
         setIsPostMode(true)
     }
 
-
-    // handle clear
-
-    const handleClear = ()=>{
-        // not necessary since width Now very large
-        return false
+    if (isMutatePostLoading || isMutateUpdateLoading) {
+        return <h2>Loading...</h2>
     }
+
+    if (isMutatePostError || isMutateUpdateError) {
+        return <h2>Something Went Wrong!</h2>
+    }
+
     
     return (
         <div style={{overflowX:'auto'}}>
+        <TablesImg table='clients' />  
         <table>
         <thead>
         <tr>
@@ -107,7 +110,6 @@ const Clients = () => {
         </tr>
         <tr>
             <th><button onClick={()=>configureAdding()} type="button" name="Name" id="Name" className='general-body-btn add'>Add Client</button></th>
-            <th><button onClick={()=>handleClear()} type="button" name="Phone" id="Phone" className='general-body-btn clear'>Details</button></th>
             <th><button onClick={()=>handleRequest()} type="button" name="Name" id="Name" className={`general-body-btn post `} > Post </button></th>
         </tr>  
         <tr>

@@ -1,8 +1,10 @@
 import React , {useState,useRef} from 'react'
 import {useQuery,useMutation,useQueryClient} from 'react-query'
-import { getClasses,modifyClass, addClass} from '../../apis';
+import { getClasses,modifyClass, addClass , clearClasses} from '../../apis';
 import Class from './Class'
+import TablesImg from '../../components/tablesImg';
 import isIdUnique from '../../utilities/CheckId'
+
 
 const Classes = () => {
     const [isPostMode,setIsPostMode] = useState(true)
@@ -61,19 +63,17 @@ const Classes = () => {
                 await mutatePost({...values})
             }
         }else{
-                if(isIdUnique(values.id,dataList)){    
-                    const newValues = {
-                    title:values.title,
-                    coach_name:values.coach_name,
-                    timing:values.timing,
-                    price:values.price,
-                    id:values.id
-                    }
+                const newValues = {
+                title:values.title,
+                coach_name:values.coach_name,
+                timing:values.timing,
+                price:values.price,
+                id:values.id
+                }
 
-                    await mutateUpdate({classId,...newValues})
-                }    
+                await mutateUpdate({classId,...newValues})
             }
-     
+
         queryClient.invalidateQueries('classes')
         setPostVisibility(false)
         setDataList(classes)
@@ -87,16 +87,17 @@ const Classes = () => {
         })
     }
 
-    // Clear
-
-
-
-    const handleClear = ()=>{
-
+    if (isMutatePostLoading || isMutateUpdateLoading) {
+        return <h2>Loading...</h2>
     }
-    
+
+    if (isMutatePostError || isMutateUpdateError) {
+        return <h2>Something Went Wrong!</h2>
+    }
+
     return (
         <div style={{overflowX:'auto'}}>
+        <TablesImg table='classes' />   
         <table>
         <thead>
         <tr>
@@ -108,7 +109,6 @@ const Classes = () => {
         </tr>
         <tr>
             <th><button onClick={()=>configureAdding()} type="button" name="Name" id="Name" className='general-body-btn add'>Add class</button></th>
-            <th><button onClick={()=>handleClear()} type="button" name="Phone" id="Phone" className='general-body-btn clear'>Clear All</button></th>
             <th><button onClick={()=>handleRequest()} type="button" name="Name" id="Name" className='general-body-btn post'> Post </button></th>
         </tr>  
         <tr>
