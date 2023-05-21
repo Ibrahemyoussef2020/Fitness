@@ -6,7 +6,7 @@ import { removeClass , modifyClass} from '../../apis'
 
 
 
-const Class = ({training,setValues,setIsPostMode}) => {
+const Class = ({training,setValues,setIsPostMode,setVisibility}) => {
 
     const queryClient = useQueryClient()
 
@@ -31,6 +31,7 @@ const Class = ({training,setValues,setIsPostMode}) => {
             id:training.id
         })
         setIsPostMode(false)
+        setVisibility(true)
     }
 
  // details
@@ -40,11 +41,19 @@ const handleDetails = (id)=>{
 }
 
     if (isLoading) {
-        return <h2>Loading...</h2>
+        return (
+            <tr>
+                <th><h2>Loading...</h2></th>
+            </tr>
+        )
     }
 
     if (isError) {
-        return <h2>Something Went Wrong!</h2>
+        return (
+            <tr>
+                <th><h2>Something Went Wrong!</h2></th>
+            </tr>
+        )
     }
 
     return (

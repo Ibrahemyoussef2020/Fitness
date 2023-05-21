@@ -4,8 +4,8 @@
       "clientId": "c2",
       "full_name": "Amged Youssef",
       "mobile_number": "(321) 234-3465",
-      "address": "address 110",
-      "subscription_plan": "subscription_plan 110",
+      "address": "address 111",
+      "subscription_plan": "subscription_plan 111",
       "id": "c2"
     },
     {
@@ -25,12 +25,34 @@
       "id": "c4"
     },
     {
+      "clientId": "c5",
       "full_name": "Saeed Mohammed",
+      "mobile_number": "(258) 234-3464",
       "address": "address 113",
-      "subscription_plan": "subscription_plan 113",
-      "mobile_number": "(258) 234-3465",
-      "avatar": "/public/images/uniform-avatar.jpg",
+      "subscription_plan": "subscription_plan 133",
       "id": "c5"
+    },
+    {
+      "full_name": "Amged Youssef",
+      "mobile_number": "(321) 234-3465",
+      "address": "address 110",
+      "subscription_plan": "subscription_plan 110",
+      "id": "c266"
+    },
+    {
+      "full_name": "Amged Yousse55",
+      "mobile_number": "(321) 234-3465",
+      "address": "address 110",
+      "subscription_plan": "subscription_plan 110",
+      "id": "c26"
+    },
+    {
+      "clientId": "subscription_plan 115",
+      "full_name": "Ali fawzy",
+      "mobile_number": "(222) 234-3465",
+      "address": "address 115",
+      "subscription_plan": "subscription_plan 115",
+      "id": "subscription_plan 115"
     }
   ],
   "classes": [
@@ -39,7 +61,7 @@
       "title": "title 2",
       "coach_name": "Saeed",
       "timing": "Sun,20:00:00 GMT",
-      "price": "300",
+      "price": "50",
       "id": "s2"
     },
     {
@@ -54,15 +76,29 @@
       "id": "s3"
     },
     {
-      "createdAt": "createdAt 45",
+      "classId": "s4",
       "title": "title 4",
       "image": "/images/classes/class-3.jpg",
       "coach_name": "Ahmed",
       "timing": "Tu,20:00:00 GMT",
-      "price": "200",
-      "description": "description-44",
-      "coach_brief": "coach_brief 44",
+      "price": "150",
       "id": "s4"
+    },
+    {
+      "classId": "s299",
+      "title": "title 5",
+      "coach_name": "Saeed",
+      "timing": "Sun,20:00:00 GMT",
+      "price": "50",
+      "id": "s299"
+    },
+    {
+      "classId": "s00",
+      "title": "title 6",
+      "coach_name": "Saeed",
+      "timing": "Sun,20:00:00 GMT",
+      "price": "20",
+      "id": "s00"
     }
   ]
 }

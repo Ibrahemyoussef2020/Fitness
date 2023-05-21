@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router'
 import {useMutation, useQueryClient} from 'react-query'
 import { removeClient , modifyClient} from '../../apis'
 
-const Client = ({client,setIsPostMode,values,setValues}) => {
+const Client = ({client,setIsPostMode,values,setValues,setVisibility}) => {
 
 const queryClient = useQueryClient()
 
@@ -27,6 +27,7 @@ const handleUpdate = async (client)=>{
         id:client.id
     })
     setIsPostMode(false)
+    setVisibility(true)
 }
 
 // details
@@ -36,11 +37,19 @@ const handleDetails = (id)=>{
 }
 
 if (isLoading) {
-    return <h2>Loading...</h2>
+    return (
+        <tr>
+            <th><h2>Loading...</h2></th>
+        </tr>
+    )
 }
 
 if (isError) {
-    return <h2>Something Went Wrong!</h2>
+    return (
+        <tr>
+            <th><h2>Something Went Wrong!</h2></th>
+        </tr>
+    )
 }
 
 return (

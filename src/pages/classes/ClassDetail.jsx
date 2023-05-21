@@ -25,7 +25,7 @@ const ClassDetail = () => {
         <Link to='/'>HOME</Link>
       </div>
       <div className='client-cover'>
-        <img src={details.image} alt="Avatar"  className='full-size'/>
+        <img src={details.image || '/images/classes/class-3.jpg'} alt="Avatar"  className='full-size'/>
       </div>
       <div className='client-avatar'>
         <img src='/images/capetian-avatar.png' alt="Avatar" className='full-size'/>

@@ -8,7 +8,7 @@ import isIdUnique from '../../utilities/CheckId'
 
 const Classes = () => {
     const [isPostMode,setIsPostMode] = useState(true)
-    const [PostVisibility,setPostVisibility] = useState(false)
+    const [visibility,setVisibility] = useState(false)
     const [values,setValues] = useState({
         title:'',
         coach_name:'',
@@ -42,58 +42,85 @@ const Classes = () => {
 
     const {data:classUpdated,mutateAsync:mutateUpdate ,isLoading:isMutateUpdateLoading,isError:isMutateUpdateError} = useMutation(modifyClass)
     
+
+    // configure adding
+
     const configureAdding = ()=>{
         idRef.current.focus()
         setIsPostMode(true)
-        setPostVisibility(true)
+        setVisibility(true)
     }
 
-    const handleRequest = async ()=>{
+    // handle update 
+
+    const handle_update = async ()=>{
         const classId = values.id
-        if (isPostMode) {
-            if(isIdUnique(values.id,dataList)){ 
-                setValues({
-                    title:values.title,
-                    coach_name:values.coach_name,
-                    timing:values.timing,
-                    price:values.price,
-                    id:values.id
-                })
 
-                await mutatePost({...values})
-            }
-        }else{
-                const newValues = {
-                title:values.title,
-                coach_name:values.coach_name,
-                timing:values.timing,
-                price:values.price,
-                id:values.id
-                }
-
-                await mutateUpdate({classId,...newValues})
+        const newValues = {
+            title:values.title,
+            coach_name:values.coach_name,
+            timing:values.timing,
+            price:values.price,
+            id:values.id
             }
 
-        queryClient.invalidateQueries('classes')
-        setPostVisibility(false)
-        setDataList(classes)
+            await mutateUpdate({classId,...newValues})
+            queryClient.invalidateQueries('classes')
+    }
 
+    // handle_create
+
+    const handle_create = async ()=>{
         setValues({
-            title:'',
-            coach_name:'',
-            timing:'',
-            price:'',
-            id:''
+            title:values.title,
+            coach_name:values.coach_name,
+            timing:values.timing,
+            price:values.price,
+            id:values.id
         })
+        await mutatePost({...values})
+        queryClient.invalidateQueries('classes')    
     }
 
-    if (isMutatePostLoading || isMutateUpdateLoading) {
-        return <h2>Loading...</h2>
-    }
 
-    if (isMutatePostError || isMutateUpdateError) {
-        return <h2>Something Went Wrong!</h2>
-    }
+// re configure adding
+
+const reconfigure_adding = ()=>{
+    setValues({
+        title:'',
+        coach_name:'',
+        timing:'',
+        price:'',
+        id:''
+    })
+ 
+    setDataList(classes)
+    setIsPostMode(true)
+    setVisibility(false)
+}
+
+    // handleRequest (create , update) - reconfigure
+
+const handleRequest = async ()=>{
+
+    if (isPostMode) {
+        if(isIdUnique(values.id,dataList)){ 
+            handle_create()
+        }
+    }else{
+            handle_update()
+        }
+    reconfigure_adding()
+}
+    
+
+if (isMutatePostLoading || isMutateUpdateLoading) {
+    return <h2>Loading...</h2>
+}
+
+if (isMutatePostError || isMutateUpdateError) {
+    return <h2>Something Went Wrong!</h2>
+}
 
     return (
         <div style={{overflowX:'auto'}}>
@@ -105,11 +132,11 @@ const Classes = () => {
             <th><input type="text" onChange={(e)=>handleChange(e)} name="coach_name" id="coach_name" placeholder='coach_name' value={values.coach_name}/></th>
             <th><input type="text" onChange={(e)=>handleChange(e)} name="timing" id="timing" placeholder='timing' value={values.timing}/></th>
             <th><input type="text" onChange={(e)=>handleChange(e)} name="price" id="price" placeholder='price' value={values.price}/></th>
-            <th><input onChange={(e)=>handleChange(e)} ref={idRef} type="text" name="id" id="id" placeholder='class Id' value={values.id}/></th>
+            <th><input onChange={(e)=>handleChange(e)} ref={idRef} type="text" name="id" id="id" placeholder='class Id' value={values.id} className={`${isPostMode ? 'inline' : 'none'}`}/></th>
         </tr>
         <tr>
             <th><button onClick={()=>configureAdding()} type="button" name="Name" id="Name" className='general-body-btn add'>Add class</button></th>
-            <th><button onClick={()=>handleRequest()} type="button" name="Name" id="Name" className='general-body-btn post'> Post </button></th>
+            <th><button onClick={()=>handleRequest()} type="button" name="Name" id="Name" className={`general-body-btn post  ${visibility ? 'inline' : 'none'}`}> Post </button></th>
         </tr>  
         <tr>
             <th>Name</th>
@@ -120,7 +147,7 @@ const Classes = () => {
         </thead>
         <tbody>
             {classes?.map((training)=> <React.Fragment key={training.id}>
-                <Class training={training} values={values} setValues={setValues} setIsPostMode={setIsPostMode}/>
+                <Class training={training} values={values} setValues={setValues} setIsPostMode={setIsPostMode} setVisibility={setVisibility}/>
             </React.Fragment>)}
         </tbody>
         </table>
