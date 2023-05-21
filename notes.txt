@@ -18,8 +18,8 @@
 
     - Loading text 
     - Error text 
-
-    it must be changed by Skelton 
+    - alert
+    it must be changed by Skelton and custom 404 , custom pup ap 
 
     404 page 
 

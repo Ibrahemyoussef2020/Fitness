@@ -106,6 +106,8 @@ const handleRequest = async ()=>{
     if (isPostMode) {
         if(isIdUnique(values.id,dataList)){ 
             handle_create()
+        }else{
+            alert('This Id is used')
         }
     }else{
             handle_update()
