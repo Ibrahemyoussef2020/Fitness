@@ -6,7 +6,7 @@ import { removeClass , modifyClass} from '../../apis'
 
 
 
-const Class = ({training,setValues,setIsPostMode,setVisibility}) => {
+const Class = ({training}) => {
 
     const queryClient = useQueryClient()
 
@@ -15,30 +15,31 @@ const Class = ({training,setValues,setIsPostMode,setVisibility}) => {
     // remove 
     const {mutateAsync:mutateDelete,isLoading,isError} = useMutation(removeClass)
 
-    const handleRemove = async (id)=>{
-        await mutateDelete(training.id)
-        queryClient.invalidateQueries('classes')
+    const handleRemove = async ()=>{
+
+        const confirmDeletion = window.confirm("Warning :it will be deleted !");
+        if (confirmDeletion) {
+            await mutateDelete(training.id)
+            queryClient.invalidateQueries('classes')
+        }
     }
 
-    // configure to update 
-
-    const handleUpdate = async (training)=> {
-        await setValues({
-            title:training.title,
-            coach_name:training.coach_name,
-            timing:training.timing,
-            price:training.price,
-            id:training.id
-        })
-        setIsPostMode(false)
-        setVisibility(true)
-    }
+ 
 
  // details
 
-const handleDetails = (id)=>{
-    navigate(`/classesDetail/${id}`)
+const handleDetails = (training)=>{
+    navigate(`/classesDetail/${training.id}` , {...training})
 }
+
+// send to update
+
+
+
+const sendToUpdate = (training)=>{
+    navigate(`/classesForm` , {state:{mode:'update',...training}})
+}
+
 
     if (isLoading) {
         return (
@@ -64,9 +65,15 @@ const handleDetails = (id)=>{
                 <td>{training.timing}</td>
                 <td>{training.price}</td>
                 <td>
-                    <button onClick={()=>handleDetails(training.id)} className='list-button details'>Details</button>
-                    <button onClick={()=>handleRemove(training.id)} className='list-button remove'>Remove</button>
-                    <button onClick={()=>handleUpdate(training)} className='list-button update'>Update</button>
+                    <button onClick={()=>handleDetails(training)} className='list-button details'>
+                        <img src='images/icons/preview-icon.png' alt='details'/>
+                    </button>
+                    <button onClick={()=>sendToUpdate(training)} className='list-button update'>
+                        <img src='images/icons/edit-icon.png' alt='update' style={{backgroundColor:'#fff',borderColor:'#FFF'}}/>
+                    </button>
+                    <button onClick={()=>handleRemove(training.id)} className='list-button remove'>
+                        <img src='images/icons/delete-icon.png' alt='remove'/>
+                    </button>
                 </td>
             </tr>
         </>

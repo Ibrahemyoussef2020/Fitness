@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{createContext, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter,RouterProvider } from 'react-router-dom';
 import {QueryClientProvider, QueryClient } from 'react-query';
@@ -12,7 +12,8 @@ import HomeBody from './pages/homeBody';
 import {Classes,ClassDetail} from './pages/classes';
 import {Clients,ClientDetail}from './pages/clients';
 import ErrorPage from './pages/404/ErrorPage'
-
+import ClientsForm from './pages/clients/clientsForm';
+import ClassesForm from './pages/classes/classesForm';
 
 
 
@@ -52,17 +53,26 @@ const router = createBrowserRouter([
     path:'/classesDetail/:classId',
     element:<ClassDetail/>,
     errorElement:<ErrorPage/>
-  }
+  },
+  {
+    path:'/clientsForm',
+    element:<ClientsForm/>,
+    errorElement:<ErrorPage/>,
+  },
+  {
+    path:'/classesForm',
+    element:<ClassesForm/>,
+    errorElement:<ErrorPage/>,
+  },
 ])
 
 const query = new QueryClient()
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={query}>
-      <RouterProvider router={router} />
+        <RouterProvider router={router} />
     </QueryClientProvider>
   </React.StrictMode>
 );

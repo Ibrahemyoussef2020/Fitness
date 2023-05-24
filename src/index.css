@@ -24,6 +24,8 @@ body {
   --bold : 700;
   /*font family*/
   --font-family-logo :"cursive" , "Yeseva One";
+/* color */
+--formColor:#1E90FF;
 }
 
 .full-size{
@@ -55,64 +57,156 @@ a{
         --another-title-font : 1rem;
     }
 }
+
+@media (max-width:360px) { 
+    .form .input-container{
+        display: block;
+        border: none;
+        margin:0px;
+    }
+
+    .input-container input{
+        margin:5px auto !important;
+    }
+}
 /********************************************/
-/*                tables pages            */
+/*               general classes           */
 /*****************************************/
-.inline{
-    display: inline;
+
+.light{
+    color: #fff;
+}
+.bold{
+    font-weight: 700;
+}
+
+
+.full-width{
+   width: 100%; 
+}
+
+.half-width{
+    width:45%;
+}
+
+.block{
+    display: block;
 }
 .none{
     display: none;
 }
+.bg-dark{
+    background: #111 !important;
+}
+
+.skeleton-grandpa{
+    height:100px;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: nowrap;
+    gap:1rem;
+    overflow: hidden;
+}
+/********************************************/
+/*               general elements          */
+/*****************************************/
+
 h2:not(article h2){
     margin-top: 2rem;
     font-weight: 900;font-style: italic;
     text-align: center;
-}
-/********************************************/
-/*                tables pages            */
-/*****************************************/
-
-input{
-    width: 100%;
-    min-width:150px;
-    height:50px;
-    padding: 5px;
-    border:2px solid salmon;
-    border-radius:5px;
-    outline: none;
-    font-weight: 700;
-    text-align: center;
-    margin: 5px 0;
-    color: #111;
-    background:#fff;
-}
-
-input::placeholder{
-    color:#777;
 }
 
 button{
     cursor: pointer;
 }
 
-.remove , .list-button.details{
-    background: #000;
-    border: 1.5px solid salmon;
+
+/********************************************/
+/*                tables pages            */
+/*****************************************/
+
+.add-to-table{
+    padding:5px 10px;
+    font-size: 1.1rem;
+    font-weight:900;
+    border: none;
+    outline: none;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 5px;
     color: #fff;
-    font-weight: bold;
-    font-size: 15px;
-    margin: 0 2px;
+    background:#03a9f4;
 }
 
-.update{
-    background: salmon;
-    border:2px solid #fff;
-    color:#000;
-    font-weight: bold;
-    font-size: 15px;
-    margin: 0 2px;
+.form{
+    padding:0px 10px;
 }
+.input-container , .input-container input{
+    width: 100%;
+    min-width:150px;
+    height:100%;
+    padding: 5px;
+    border: 1px solid var(--formColor);
+    border-radius: 15px;
+    outline: none;
+    font-weight: 700;
+    text-align: center;
+    color: #111;
+}
+
+.input-container button{
+    padding:7px;
+    font-size: 1.1rem;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    background: var(--formColor);
+}
+
+.input-container input::placeholder{
+    color:#777;
+}
+
+.input-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    padding:5px;
+    margin-top:20px;
+    border: .5px solid #1E90FF;
+}
+
+.input-container:last-child{
+    width:98%;
+    text-align: center;
+    margin: 10px auto;
+}
+
+.input-container:last-child button{
+    width: 100%;
+}
+
+input:read-only{
+    background:#1E90FF;
+    color: #fff;
+    opacity: .3;
+}
+
+
+table .list-button{
+    background:transparent;
+    border:none;
+    color:#ffff00;
+    font-weight: bold;
+}
+.list-button img{
+    max-width: 25px;
+    max-height: 30px;
+    background: transparent !important;
+    border-color: transparent !important;
+}
+
 
 /*********************** table ********************/
 
@@ -129,22 +223,24 @@ button{
 table{
     width: 100%;
     text-align: center;
-    border: 1px solid orangered;
-    background: #333;
-    color: #fff;
     overflow-x: auto;
 }
 
+tr > *{
+    flex: 1;
+}
 th,td{
-    padding:10px 5px;
+    padding:10px 2px;
     text-align: center;
     white-space: nowrap; 
-    color:#fefefec9;
+    color:#333;
+    border: .2px solid #ddd;
+
 }
 th{
     font-weight: 900;
     font-size: 18px;
-    color: #fff;
+    color: #111
 }
 
 table.table-details tr{
@@ -157,14 +253,22 @@ table.table-details tr{
     border-radius: 5px;
     outline: none;
     background:salmon;
-    color:#fff;
     cursor: pointer;
-    min-width: 150px;
 }
 
 .list-button{
     padding:3px;
     border-radius: 5px;
+}
+
+.link-button{
+    font-size: 1.1rem;
+    font-weight: 900;
+    font-style: italic;
+    border: none;
+    outline: none;
+    color:#1E90FF;
+    background: transparent;
 }
 
 

@@ -1,18 +1,28 @@
 import React from 'react'
-import { useParams } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 import { Link } from 'react-router-dom'
 import { useQuery,useQueryClient } from 'react-query'
 import { getClass } from '../../apis'
+import SkeletonRow from '../../utilities/skeleton'
 
 const ClassDetail = () => {
   const queryClient = useQueryClient()
   const {classId} = useParams()
-
+  const navigate = useNavigate()
 
   const {data:details,isLoading,isError} = useQuery(['clientDetails',classId],()=>getClass(classId))
 
+const handle_subscribe = ()=>{
+  alert('This feature is not supported for now !')
+}
+const show_classes = ()=>{
+  navigate('/classes')
+} 
+
+
+
   if (isLoading) {
-    return <h1>Loading...</h1>
+    return <SkeletonRow/>
   }
 
   if (isError) {
@@ -38,24 +48,38 @@ const ClassDetail = () => {
             <tr>
                 <th>ID</th>
                 <th>title</th>
+            </tr>
+            <tr>
+              <td>{details.id || "Un saved"}</td>
+              <td>{details.title || "Un saved"}</td>
+            </tr>
+            <tr>  
                 <th>coach name</th>
                 <th>timing</th>
             </tr>
             <tr>
-              <td>{details.id}</td>
-              <td>{details.title}</td>
-              <td>{details.timing}</td>
-              <td>{details.coach_name}</td>
+              <td>{details.timing || "Un saved"}</td>
+              <td>{details.coach_name || "Un saved"}</td>
             </tr>
             <tr>            
                 <th>coach brief</th>
                 <th>subscription type</th>
-                <th>price</th>
             </tr>
-            <tr>            
-                <td>{details.coach_brief}</td>
-                <td>{details.subscription_type}</td>
-                <td>{details.price}</td>
+            <tr>
+                <td>{details.coach_brief || "Un saved"}</td>
+                <td>{details.subscription_type || "Un saved"}</td>
+            </tr>
+            <tr>  
+                <th>price</th>
+                <th>
+                  <button className='link-button' onClick={handle_subscribe}>For subscription</button> 
+                </th>
+            </tr>
+            <tr>              
+                <td>{details.price || "Un saved"}</td>
+                <th>
+                  <button className='link-button' onClick={show_classes}>back to classes</button> 
+                </th>
             </tr>
           </thead>
         </table>

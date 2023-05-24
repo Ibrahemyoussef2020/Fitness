@@ -3,6 +3,7 @@ import { useParams } from 'react-router'
 import { Link } from 'react-router-dom'
 import { useQuery,useQueryClient } from 'react-query'
 import { getClient } from '../../apis'
+import SkeletonRow from '../../utilities/skeleton'
 
 const ClientDetail = () => {
   const queryClient = useQueryClient()
@@ -13,7 +14,7 @@ const ClientDetail = () => {
   const {data:details,isLoading,isError} = useQuery(['clientDetails',clientId],()=>getClient(clientId))
 
   if (isLoading) {
-    return <h1>Loading...</h1>
+    return <SkeletonRow/>
   }
 
   if (isError) {
@@ -39,16 +40,20 @@ const ClientDetail = () => {
             <tr>
                 <th>Name</th>
                 <th>Phone</th>
-                <th>address</th>
-                <th>subscription type</th>
             </tr>
+            <tr>
+              <td>{details.full_name || "Un saved"}</td>
+              <td>{details.mobile_number || "Un saved"}</td>
+            </tr>  
           </thead>
           <tbody>
+            <tr>    
+              <th>address</th>
+              <th>subscription type</th> 
+            </tr>
             <tr>
-              <td>{details.full_name}</td>
-              <td>{details.mobile_number}</td>
-              <td>{details.address}</td>
-              <td>{details.subscription_plan}</td>
+              <td>{details.address || "Un saved"}</td>
+              <td>{details.subscription_plan || "Un saved"}</td>
             </tr>
           </tbody>
         </table>
