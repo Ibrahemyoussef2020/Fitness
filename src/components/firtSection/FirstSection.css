@@ -1,0 +1,15 @@
+.first-section{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.first-section > div{
+    flex: 1;
+    min-width: 250px;
+    max-height:450px;
+}
+
+.first-section > div img{
+    max-width: 100%;
+    height: 100%;
+}

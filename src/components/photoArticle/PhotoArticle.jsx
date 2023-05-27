@@ -7,6 +7,7 @@ ImgContainer
 
 const PhotoArticle = (props) => {
   return (
+  <>
     <PhotoArticleSection direction={props.section.direction}>
         <Article>
           <Title>{props.section.title}</Title>
@@ -16,6 +17,7 @@ const PhotoArticle = (props) => {
           <img src={props.section.img} alt={props.section.title}/>
         </ImgContainer>
     </PhotoArticleSection>
+    </>
   )
 }
 

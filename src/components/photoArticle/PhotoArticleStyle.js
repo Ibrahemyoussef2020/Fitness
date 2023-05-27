@@ -4,10 +4,11 @@ import { styled } from "styled-components";
 /*        Title            */
 
 const TitleStyle = styled.h2`
-font-size: var(--main-title-font);
+font-size: var(--another-title-font);
 font-family: var(--font-family-logo);
-font-weight:700;
-color:var(--dark-blue-color);
+font-style:italic;
+font-weight:900;
+color:#4354d0;
 line-height:3.2rem;
 `
 
@@ -21,7 +22,7 @@ export const Title = ({children})=>{
 
 const ArticleStyle = styled.article`
 flex:1;
-
+padding-left:1rem;
 `
 export const Article = ({children})=>{
     return <ArticleStyle>
@@ -34,6 +35,9 @@ export const Article = ({children})=>{
 const ImgContainerStyle = styled.article`
 flex:1;
 padding:10px;
+font-family: var(--font-family-logo);
+font-weight:600;
+font-style:italic;
 & img{
     width:100%;
     height:250px;

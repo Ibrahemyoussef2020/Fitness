@@ -1,24 +1,29 @@
 import styled from "styled-components";
 
 const NavStyle = styled.nav`
-position: absolute;
-top:70px;
-left:50px;
+position: relative;
+top:81px;
+left:0px;
 height:70vh;
-display: flex;
-flex-direction:column;
-justify-content: space-around;
-align-items:center;
-padding: 2px .5rem;
-font-size: var(--another-title-font);
-font-weight:bold;
-background:red;
-over-flow:visible;
+width:100vw;
+background:transparent;
+z-index: 5;
 
 & a{
-    color:#00f;
+    width:100%;
+    padding-left:10px;
+    display:flex;
+    align-items:center;
+    gap:.75rem;
+    color:#fff;
+}
+& img{
+    width:25px;
+    height:25px;
+}
+
+& span{
     display:block;
-    z-index: 1;
 }
 `
 

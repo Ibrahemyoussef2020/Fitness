@@ -13,7 +13,8 @@ max-height:550px;
         right:0;
     }
     & > .cover-img{
-        z-index:0
+        z-index:0;
+        height:100%;
     }
     & > .cover-layout{
         z-index:1;

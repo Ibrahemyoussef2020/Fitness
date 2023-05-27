@@ -4,7 +4,7 @@ const HeaderBarStyle = styled.header`
 display: flex;
 justify-content: space-between;
 align-items:center;
-padding:5px 1.5rem 0;
+padding:5px 2rem 0 1rem;
 background:#00000033;
 position:relative;
 & button{
